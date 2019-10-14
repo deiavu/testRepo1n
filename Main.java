@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 import sk.itsovy.studnicka.other.FreeClass;
 
 import java.sql.SQLOutput;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -109,9 +110,11 @@ public class Main {
  getRandomPass();
  getRandomPass2();
  getRandomPass3();
+ getRandomNum();
  */
         freeClass1.test();
-        getRandomNum();
+
+        getHoroscope();
     }
 
     public static void writeName() {
@@ -498,20 +501,32 @@ public class Main {
             default:
                 System.out.println("Wrong month input!");
         }
-        switch (year) {
-            case 13:
-                if (year >= 500) {
-                    System.out.println("Rat");
-                    break;
-                } else if (year <= 500) {
-                    System.out.println("something else");
-                    break;
-                }
-            default:
-                System.out.println("Wrong year input");
-
-        }
-
+        if (year==1924 || year==1936 || year==1948 || year==1960 || year==1972 || year==1984 || year==1996 || year==2008 || year==2020)
+            System.out.println("Your zodiac animal is:\nRat"+"\n"+"Personality Traits:\nQuick-witted, resourceful\nversatile, kind");
+        else if (year==1925 || year==1937 || year==1949 || year==1961 || year==1973 || year==1985 || year==1997 || year==2009 || year==2021)
+            System.out.println("Your zodiac animal is:\nOx"+"\n"+"Personality Traits:\nDiligent, dependable\nstrong, determined");
+        else if (year==1926 || year==1938 || year==1950 || year==1962 || year==1974 || year==1986 || year==1998 || year==2010 || year==2022)
+            System.out.println("Your zodiac animal is:\nTiger"+"\n"+"Personality Traits:\nBrave, confident\ncompetitive");
+        else if (year==1927 || year==1939 || year==1951 || year==1963 || year==1975 || year==1987 || year==1999 || year==2011 || year==2023)
+            System.out.println("Your zodiac animal is:\nRabbit"+"\n"+"Personality Traits:\nDiligent, dependable\nstrong, determined");
+        else if (year==1928 || year==1940 || year==1952 || year==1964 || year==1976 || year==1988 || year==2000 || year==2012 || year==2024)
+            System.out.println("Your zodiac animal is:\nDragon"+"\n"+"Personality Traits:\nConfident, intelligent\nkenthusiastic");
+        else if (year==1929 || year==1941 || year==1953 || year==1965 || year==1977 || year==1989 || year==2001 || year==2013 || year==2025)
+            System.out.println("Your zodiac animal is:\nSnake"+"\n"+"Personality Traits:\nEnigmatic, intelligent\nwise");
+        else if (year==1930 || year==1942 || year==1954 || year==1966 || year==1978 || year==1990 || year==2002 || year==2014 || year==2026)
+            System.out.println("Your zodiac animal is:\nHorse"+"\n"+"Personality Traits:\nAnimated, active\nenergetic");
+        else if (year==1931 || year==1943 || year==1955 || year==1967 || year==1979 || year==1991 || year==2003 || year==2015 || year==2027)
+            System.out.println("Your zodiac animal is:\nGoat"+"\n"+"Personality Traits:\nCalm, gentle\nsymphatetic");
+        else if (year==1932 || year==1944 || year==1956 || year==1968 || year==1980 || year==1992 || year==2004 || year==2016 || year==2028)
+            System.out.println("Your zodiac animal is:\nMonkey"+"\n"+"Personality Traits:\nSharp, smart\ncuriosity");
+        else if (year==1933 || year==1945 || year==1957 || year==1969 || year==1981 || year==1993 || year==2005 || year==2017 || year==2029)
+            System.out.println("Your zodiac animal is:\nRooster"+"\n"+"Personality Traits:\nObservant, hardworking\ncourageous");
+        else if (year==1934 || year==1946 || year==1958 || year==1970 || year==1982 || year==1994 || year==2006 || year==2018 || year==2030)
+            System.out.println("Your zodiac animal is:\nDog"+"\n"+"Personality Traits:\nLovely, honest\nprudent");
+        else if (year==1935 || year==1947 || year==1959 || year==1971 || year==1983 || year==1995 || year==2007 || year==2019 || year==2031)
+            System.out.println("Your zodiac animal is:\nPig"+"\n"+"Personality Traits:\nCompassionate, generous\ndiligent");
+        else
+            System.out.println("Wrong year");
     }
 
     public static void getPyramide() {
@@ -642,17 +657,27 @@ public class Main {
     //to iste + to osetrit pre +, -, * kde + musi mat 50% uspesnost
     //3. uloha
     //to iste ale nech sa to opakuje 10 krat v cykle a nech na konci vypise pocet spravnych a nespravnych odpovedi
+    // 4. uloha
+    //pri spusteni zadate meno a vypise uvitanie
+    //5. uloha
+    //vypisat dlzku pracovania programu
     public static void getRandomNum() {
 
         Random rnd = new Random();
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter name: ");
+        String input = sc.nextLine();
+        System.out.println("Hello " + input + "\n" + "Welcome to this test: ");
 
-        int o;
+        int a;
         int correctAnswers = 0;
         int incorrectAnswers = 0;
 
+        Date start = new Date();
+        long startTime = start.getTime();
+
         for (int i = 1; i <= 10; i++) {
-            System.out.println(i+ ".Example");
+            System.out.println(i+ "Example");
             int m = rnd.nextInt(90) + 10;
             int n = rnd.nextInt(90) + 10;
             int p = rnd.nextInt(4);
@@ -670,10 +695,9 @@ public class Main {
                     break;
             }
 
-            o = sc.nextInt();
+            a = sc.nextInt();
 
-
-            if ((p == 0 && o == (m+n)) || (p == 1 && o ==(m+n)) || (p == 2 && o == (m - n)) || (p == 3 && o == (m*n))) {
+            if ((p == 0 && a == (m+n)) || (p == 1 && a ==(m+n)) || (p == 2 && a == (m - n)) || (p == 3 && a == (m*n))) {
                 System.out.println("Correct.");
                 correctAnswers++;
             }
@@ -682,9 +706,29 @@ public class Main {
                 incorrectAnswers++;
             }
 
+
         }
         System.out.println("Correct answers: " + correctAnswers + "\n" + "Incorrect answers: " + incorrectAnswers);
+
+
+        Date end = new Date();
+        long endTime = end.getTime();
+        long resultTimes = endTime - startTime;
+        long minutes = 0;
+        long seconds = 0;
+        System.out.println(end.getTime());
+        System.out.println("Correct answers: " + correctAnswers + " Incorrect answers: " + incorrectAnswers);
+        resultTimes = resultTimes/1000;
+        if (resultTimes >= 60) {
+            minutes++;
+            seconds = resultTimes - 60;
+        }
+        else {
+            seconds = resultTimes;
+        }
+        System.out.println("Minutes: " + minutes + " Seconds: " + seconds);
     }
+
 
 }
 
